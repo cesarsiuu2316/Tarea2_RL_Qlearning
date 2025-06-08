@@ -6,7 +6,7 @@ N = 1000 # Número de generaciones para mostrar información
 desc = ["SFFF", "FHFH", "FFFH", "HFFG"]
 
 # Entornos
-slippery = False
+slippery = True
 training_env = gym.make('FrozenLake-v1', desc=desc, is_slippery=slippery)
 rendering_env = gym.make('FrozenLake-v1', desc=desc, is_slippery=slippery, render_mode='human')
 
@@ -17,16 +17,16 @@ num_acciones = training_env.action_space.n # 4
 # Al inicio la matriz se debe inicializar en 0 con num_estados filas y num_acciones columnas
 q_table = np.zeros((num_estados, num_acciones)) 
 
-tasa_aprendizaje = 0.3 # ALPHA
+tasa_aprendizaje = 0.15 # ALPHA
 factor_descuento = 0.99 # GAMMA
-generaciones = 10000 # EPISODIOS
+generaciones = 30000 # EPISODIOS
 listado_recompensas = []
 
 # Epsilon-greedy
 epsilon = 1.0 # Exploración inicial
 epsilon_min = 0.05 # Epsilon mínimo
-decaimiento = 0.995  # Factor de decaimiento de epsilon
-max_steps = 80 # Máximo de pasos por episodio
+decaimiento = 0.9995  # Factor de decaimiento de epsilon
+max_steps = 90 # Máximo de pasos por episodio
 
 for generacion in range(generaciones):
     observation, _ = training_env.reset() # Reiniciar el entorno
@@ -72,6 +72,7 @@ for i in range(pruebas):  # Mostrar episodios con política óptima
         final = terminated or truncated
         estado = nuevo_obs
         time.sleep(0.2)  # ralentizar la visualización
+
 
 # Mapa de flechas para representar la política óptima
 flechas = ['←', '↓', '→', '↑']
