@@ -169,6 +169,7 @@ def plot_recompensas_promedios_moviles(recompensa1, recompensa2, block_size=20):
     avg1 = promedio_movil(recompensa1, block_size)
     avg2 = promedio_movil(recompensa2, block_size)
 
+    plt.figure(figsize=(18, 6))
     plt.plot(avg1, label=f"Random Agent (Media móvil {block_size})")
     plt.plot(avg2, label=f"Q-Learning Agent (Media móvil {block_size})")
     plt.xlabel("Episodio")
@@ -180,6 +181,7 @@ def plot_recompensas_promedios_moviles(recompensa1, recompensa2, block_size=20):
 
 
 def plot_recompensas_crudas(recompensa1, recompensa2):
+    plt.figure(figsize=(18, 6))
     plt.plot(recompensa1, label="Random Agent")
     plt.plot(recompensa2, label="Q-Learning Agent")
     plt.xlabel("Episodio")
