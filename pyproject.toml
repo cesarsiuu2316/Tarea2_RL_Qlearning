@@ -5,6 +5,6 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "gymnasium>=1.1.1",
+    "gymnasium[toy-text]>=1.1.1",
     "numpy>=2.3.0",
 ]
