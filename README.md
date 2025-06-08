@@ -50,10 +50,10 @@ uv add -r requirements.txt
 
 ```bash
 # Run python projects
-python q-learning.py
+python main.py
 ```
 or
 ```bash
 # Run using
-uv run q-learning.py
+uv run main.py
 ```
